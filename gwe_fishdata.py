@@ -42,5 +42,5 @@ if __name__=='__main__':
     mydata = FishData()
     bream = mydata.getSpecies('Bream')
     r, d = mydata.getFeatures(bream, 'Length1', 'Weight')
-    print(r)
-    print(d)
+    print(r[:4])
+    print(d[:4])
