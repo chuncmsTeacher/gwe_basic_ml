@@ -37,10 +37,17 @@ class FishData:
             colist.append(self.features.index(f))
 
         return fishlist[:,0], fishlist[:,colist].astype(float)
-
+    
+    def getFish(self, spec, fea):
+        flist = self.getSpecies(*spec) if type(spec)==tuple else self.getSpecies(spec)
+        return self.getFeatures(flist, *fea) if type(fea)==tuple else self.getFeatures(flist, fea)
+    
 if __name__=='__main__':
     mydata = FishData()
     bream = mydata.getSpecies('Bream')
     r, d = mydata.getFeatures(bream, 'Length1', 'Weight')
     print(r[:4])
     print(d[:4])
+    br, bd = mydata.getFish(('Bream', 'Smelt'), ('Length1', 'Weight'))
+    print(br[:4])
+    print(bd[:4])

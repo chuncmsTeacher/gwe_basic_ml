@@ -22,7 +22,8 @@ scaled = ss.transform(bsdata)
 train, test, target, testtarget = train_test_split(scaled, bsresult)
 
 
-sc = SGDClassifier(loss='log', tol=None)
+#sc = SGDClassifier(loss='log', tol=None)
+sc = SGDClassifier(loss='log', alpha=0.01, max_iter=100)
 #sc = SGDClassifier(loss='log', max_iter=100, tol=None)
 trainscore = []
 testscore = []
